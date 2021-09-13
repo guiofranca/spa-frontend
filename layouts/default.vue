@@ -8,29 +8,36 @@
       fixed
       app
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+      <v-list class="">
+        <div v-if="this.$auth.loggedIn">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+        </div>
+        
+        <div class="">
+          <DrawerUserAuthInfo />
+        </div>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app fade-img-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <UserAuthInfo />
+      <!-- <v-spacer />
+      <UserAuthInfo /> -->
     </v-app-bar>
     <v-main>
       <v-container>
@@ -67,29 +74,9 @@ export default {
           title: "Bills",
           to: "/bills",
         },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Inspire2",
-          to: "/inspire2",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Inspire3",
-          to: "/inspire3",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Inspire4",
-          to: "/inspire4",
-        },
       ],
       miniVariant: false,
-      title: "App",
+      title: "Splitabilly",
     };
   },
   mounted() {

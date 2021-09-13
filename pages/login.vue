@@ -45,7 +45,7 @@ export default {
    data() {
         return {
             form: {
-                email: 'gui@hehe.comd',
+                email: 'gui@hehe.com',
                 password: '123123123',
             },
             error: null,

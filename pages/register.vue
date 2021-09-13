@@ -60,10 +60,10 @@ export default {
    data() {
         return {
             form: {
-                name: 'Joana',
-                email: 'joana@hehe.comd',
+                name: 'Guilherme França',
+                email: 'gui@hehe.com',
                 password: '123123123',
-                password_confirmation: '',
+                password_confirmation: '123123123',
             },
             error: null,
         }

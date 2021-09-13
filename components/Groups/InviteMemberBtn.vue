@@ -19,7 +19,7 @@
           <v-text-field
             v-model="form.email"
             name="email"
-            label="email"
+            label="Email"
             id="email"
           ></v-text-field>
           <span

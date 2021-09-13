@@ -20,19 +20,13 @@
           <v-text-field
               v-model="form.value"
               name="value"
-              label="value"
+              label="Value"
               id="value"
               inputmode="numeric"
               prepend-icon="mdi-currency-usd"
-              v-money="money"
+              v-money="form.value === null ? null : money"
           ></v-text-field>
-          <v-text-field
-              v-model="form.category"
-              name="category"
-              label="category"
-              id="category"
-              prepend-icon="mdi-tag"
-          ></v-text-field>
+          <BillsCategoryPicker :categories="categories" />
           
           
       <v-dialog
@@ -103,13 +97,14 @@
 
 
 export default {
+  props: ['categories'],
   data() {
     return {
       dialog: false,
       form: {
           description: '',
           value: null,
-          category_id: 1,
+          category_id: null,
           paid_at: null,
       },
       errors: {},
@@ -147,5 +142,10 @@ export default {
         this.errors = {}
       }
   },
+  created(){
+      $nuxt.$on('category-picker-create', (category) => {
+          this.form.category_id = category.id
+      })
+  }
 };
 </script>

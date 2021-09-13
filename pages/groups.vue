@@ -1,12 +1,18 @@
 <template>
 <div>
   <v-container>
-    <v-row>
+    <v-row v-if="groups">
       <v-col v-for="group in groups" :key="group.id" cols="12" md="8" lg="6">
         <GroupsGroupCard :group="group" />
       </v-col>
     </v-row>
-    <v-row v-if="groups.length == 0">
+    <v-row v-else>
+      <v-skeleton-loader
+          type="card"
+          width="200"
+      ></v-skeleton-loader>
+    </v-row>
+    <v-row v-if="groups && groups.length == 0">
       <v-col cols="12" md="8" lg="6">
         <GroupsEmptyGroups />
       </v-col>
@@ -20,7 +26,7 @@
 export default {
   data() {
     return {
-      groups: []
+      groups: null
     }
   },
   async mounted(){

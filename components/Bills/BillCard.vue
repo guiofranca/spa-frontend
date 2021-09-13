@@ -23,7 +23,7 @@
 
     <v-btn color="success" rounded>text</v-btn>
     <v-spacer></v-spacer>
-    <BillsEditBillDialog :bill="bill" />
+    <BillsEditBillDialog :bill="bill" :categories="categories" />
 
       <!-- <BillsDestroyBillBtn :bill="bill" />
       <BillsEditBillDialog :bill="bill" /> -->
@@ -32,7 +32,7 @@
 </template>
 <script>
 export default {
-    props: ['bill'],
+    props: ['bill', 'categories'],
     setup() {
         
     },
