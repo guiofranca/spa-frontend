@@ -40,11 +40,12 @@
                         ></v-text-field>
                     </v-form>
                     </v-card-text>
-                    <v-card-text v-if="error" class="red--text">
-                        {{error}}                        
+                    <v-card-text v-if="errors">
+                        <span class="red--text" v-for="(value, name, index) in errors" :key="index">{{value[0]}}<br/></span>
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
+                        <v-btn color="default" type="button" to="/login">Login</v-btn>
                         <v-btn color="primary" type="submit">Register</v-btn>
                     </v-card-actions>
                 </v-form>
@@ -60,19 +61,22 @@ export default {
    data() {
         return {
             form: {
-                name: 'Guilherme França',
-                email: 'gui@hehe.com',
-                password: '123123123',
-                password_confirmation: '123123123',
+                name: '',
+                email: '',
+                password: '',
+                password_confirmation: '',
             },
-            error: null,
+            errors: {},
         }
     },
     methods: {
         async register() {
             this.error = null
             await this.$axios.$post('/auth/register', this.form)
-                .catch((e) => (this.error = e.response.data.message))
+                .catch(r => {
+                    this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+                    this.errors = r.response.data.errors
+                })
 
             if(this.error) return
 

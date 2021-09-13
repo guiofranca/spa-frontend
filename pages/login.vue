@@ -30,6 +30,7 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
+                        <v-btn color="default" type="button" to="/register">Register</v-btn>
                         <v-btn color="primary" type="submit">Login</v-btn>
                     </v-card-actions>
                 </v-form>
@@ -45,8 +46,8 @@ export default {
    data() {
         return {
             form: {
-                email: 'gui@hehe.com',
-                password: '123123123',
+                email: '',
+                password: '',
             },
             error: null,
         }
