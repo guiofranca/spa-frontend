@@ -1,14 +1,12 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo/>
-      </v-card>
-
-      <br />
-
-      <TestCard next="/inspire" />
+    <v-col cols="12" sm="10" md="8">
+      <Roadmap />
     </v-col>
   </v-row>
 </template>
+<script>
+export default {
+  auth: false
+}
+</script>

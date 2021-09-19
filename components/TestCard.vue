@@ -24,7 +24,7 @@
             >
                 Next
             </v-btn>
-            <TesteToggleDark />
+            <ToggleDark />
         </v-card-actions>
     </v-card>
 </template>

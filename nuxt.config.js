@@ -14,8 +14,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - spa-frontend',
-    title: 'spa-frontend',
+    titleTemplate: '%s',
+    title: 'Splitabilly',
     htmlAttrs: {
       lang: 'en'
     },
