@@ -24,6 +24,27 @@
           <v-list-item-title v-text="'Group'" />
         </v-list-item-content>
       </v-list-item>
+
+      <v-list-item
+        @click="toggleDarkMode"
+      >
+        <v-list-item-action>
+          <v-icon>mdi-brightness-6</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title v-text="'Toggle dark mode'" />
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item to="/profile">
+        <v-list-item-action>
+          <v-icon>mdi-account</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title v-text="this.$auth.user.name" />
+        </v-list-item-content>
+      </v-list-item>
+
       <v-list-item
         @click="logout"
       >
@@ -70,6 +91,11 @@ export default {
   methods: {
     logout() {
       this.$auth.logout().then((response) => this.$router.push("/login"));
+    },
+    toggleDarkMode() {
+      var dark = localStorage.getItem('darkMode') != "true"
+      this.$vuetify.theme.dark = dark
+      localStorage.setItem('darkMode', dark)
     },
   },
 };
