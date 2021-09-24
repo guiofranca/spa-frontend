@@ -36,8 +36,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title v-text="title" />
-      <!-- <v-spacer />
-      <UserAuthInfo /> -->
+      <v-spacer />
+      <v-btn color="default" rounded fab small href="https://github.com/guiofranca/spa-backend" title="Backend" depressed><v-icon>mdi-github</v-icon></v-btn>
+      <v-btn color="default" rounded fab small href="https://github.com/guiofranca/spa-frontend" title="Frontend" depressed><v-icon>mdi-github</v-icon></v-btn>
+      
     </v-app-bar>
     <v-main>
       <v-container>
