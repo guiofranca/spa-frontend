@@ -26,8 +26,8 @@
       </div>
 
       <GroupsSetActiveGroupBtn :group="group" />
-      <GroupsDestroyGroupBtn :group="group" />
-      <GroupsEditGroupDialog :group="group" />
+      <GroupsDestroyGroupBtn :group="group" v-if="this.$auth.user.id == group.owner_id"/>
+      <GroupsEditGroupDialog :group="group" v-if="this.$auth.user.id == group.owner_id"/>
     </v-card-actions>
 
     <v-expand-transition>
@@ -35,7 +35,7 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          <GroupsInviteMemberBtn :group="group" />
+          <GroupsInviteMemberBtn :group="group" v-if="this.$auth.user.id == group.owner_id"/>
           <div v-for="user in group.users" :key="user.id">
               {{user.name}}
           </div>
