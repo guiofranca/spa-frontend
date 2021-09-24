@@ -10,29 +10,17 @@
       <v-card>
         <v-card-title class="text-h5"> Invite a member </v-card-title>
         <v-card-text>
-          <v-text-field
-            v-model="form.name"
-            name="name"
-            label="Name"
-            id="name"
-          ></v-text-field>
-          <v-text-field
-            v-model="form.email"
-            name="email"
-            label="Email"
-            id="email"
-          ></v-text-field>
-          <span
-            class="red--text"
-            v-for="(value, name, index) in errors"
-            :key="index"
-            >{{ value[0] }}<br
-          /></span>
+          <p>{{text}}</p>
+          <p>{{url}}</p>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions v-if="!invited">
           <v-spacer></v-spacer>
           <v-btn color="secondary" @click="dialog = false">Cancel</v-btn>
           <v-btn color="primary" @click="invite">Invite</v-btn>
+        </v-card-actions>
+        <v-card-actions v-else>
+          <v-spacer></v-spacer>
+          <v-btn color="success" @click="dialog = false">Ok</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -55,16 +43,22 @@ export default {
   data() {
     return {
       dialog: false,
-      form: {
-        name: '',
-        description: '',
-      },
-      errors: {},
+      text: 'Create a url for invitation.',
+      url: '<waiting invitation!>',
+      invited: false
     };
   },
   methods: {
-      invite(){
-          this.dialog = false
+      async invite(){
+        await this.$axios.$post('/group_invitation', {group_id: this.group.id})
+          .then(r => {
+            this.$notifier.showMessage({ content: r.message, color: 'success' })
+            this.text = "Great! Now copy and share the invite below."
+            this.url = r.url
+            this.invited = true
+          }
+        )
+        .catch(r => this.$notifier.showMessage({ content: r.response.data.message, color: 'error' }))
       }
     /*async save() {
       await this.$axios
@@ -85,5 +79,14 @@ export default {
         });
     },*/
   },
+  watch:{
+    dialog:function(newValue){
+      if(!newValue){
+        this.text = 'Create a url for invitation.'
+        this.url = '<waiting invitation!>'
+        this.invited = false
+      }
+    }
+  }
 };
 </script>
