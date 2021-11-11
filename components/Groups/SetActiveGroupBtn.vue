@@ -13,7 +13,7 @@ export default {
   props: ['group'],
   computed: {
     isActive(){
-      return this.$auth.user.active_group_id == this.group.id
+      return this.$auth.user.data.active_group_id == this.group.id
     },
     btnColor() {
       return this.isActive ? 'success' : 'primary'

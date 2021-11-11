@@ -65,7 +65,7 @@ export default {
               this.$notifier.showMessage({ content: r.message, color: 'success' })
               this.closeDialogAndClearInputs()
               this.errors = {}
-              $nuxt.$emit('group-created', r.group)
+              $nuxt.$emit('group-created', r.data)
           })
           .catch(r => {
             this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })

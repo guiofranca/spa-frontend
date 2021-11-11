@@ -2,13 +2,13 @@
   <div class="">
     <div v-if="this.$auth.loggedIn">
       <v-list-item
-        v-if="this.$auth.user.active_group_id"
+        v-if="this.$auth.user.data.active_group_id"
       >
         <v-list-item-action>
           <v-icon>mdi-cash-register</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="this.$auth.user.active_group.name" />
+          <v-list-item-title v-text="this.$auth.user.data.active_group.name" />
         </v-list-item-content>
       </v-list-item>
       <v-list-item
@@ -41,7 +41,7 @@
           <v-icon>mdi-account</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="this.$auth.user.name" />
+          <v-list-item-title v-text="this.$auth.user.data.name" />
         </v-list-item-content>
       </v-list-item>
 

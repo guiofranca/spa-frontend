@@ -69,7 +69,7 @@ export default {
           this.$notifier.showMessage({ content: r.message, color: "success" });
           this.dialog = false;
           this.errors = {};
-          $nuxt.$emit("group-updated", r.group);
+          $nuxt.$emit("group-updated", r.data);
           this.$auth.fetchUser();
         })
         .catch((r) => {

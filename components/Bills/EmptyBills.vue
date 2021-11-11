@@ -3,7 +3,7 @@
     class="mx-auto"
   >
 
-    <v-card-title v-if="this.$auth.user.active_group_id">
+    <v-card-title v-if="this.$auth.user.data.active_group_id">
       Create your first bill
     </v-card-title>
     <v-card-title v-else>

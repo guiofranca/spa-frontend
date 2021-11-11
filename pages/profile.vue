@@ -90,8 +90,8 @@ export default {
    data() {
         return {
             user: {
-                name: this.$auth.user.name,
-                email: this.$auth.user.email,
+                name: this.$auth.user.data.name,
+                email: this.$auth.user.data.email,
             },
             error: null,
             show: false,
@@ -120,7 +120,7 @@ export default {
                 update.password_confirmation = this.changePassword.password_confirmation
             }
 
-            await this.$axios.$post('/user', update)
+            await this.$axios.$patch('/user', update)
                 .then(response => this.$notifier.showMessage({ content: response.message, color: 'success' }))
                 .catch(e => this.$notifier.showMessage({ content: e.response.data.message, color: 'error' }))
 

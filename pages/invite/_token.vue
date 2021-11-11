@@ -30,8 +30,9 @@ export default {
             await this.$axios.$patch(`/group_invitation/${this.$route.params.token}`, {accepted: accepted})
                 .then(r => {
                     this.$notifier.showMessage({ content: r.message, color: 'success' })
-                }
-            )
+                    this.$router.push('/groups')
+                })
+                .catch(r => this.$notifier.showMessage({ content: r.response.data.message, color: 'error' }))
         }
     }
 }

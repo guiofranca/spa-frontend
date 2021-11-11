@@ -28,10 +28,8 @@ export default {
     };
   },
   async mounted() {
-    await this.$axios.$get("/bills").then((r) => (this.bills = r));
-    await this.$axios.$get(`/categories`).then((r) => {
-      this.categories = r.categories;
-    })
+    await this.$axios.$get("/bills").then((r) => (this.bills = r.data));
+    await this.$axios.$get(`/categories`).then((r) => (this.categories = r.data));
   },
   created() {
     $nuxt.$on("bill-created", (bill) => {

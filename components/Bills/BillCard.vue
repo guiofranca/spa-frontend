@@ -23,6 +23,7 @@
 
     <v-btn color="success" rounded>text</v-btn>
     <v-spacer></v-spacer>
+    <BillsDestroyBillBtn :bill="bill" />
     <BillsEditBillDialog :bill="bill" :categories="categories" />
 
       <!-- <BillsDestroyBillBtn :bill="bill" />

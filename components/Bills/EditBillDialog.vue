@@ -93,7 +93,7 @@ export default {
   computed: {
     canEdit() {
       if (this.bill.user) {
-        return this.$auth.user.id == this.bill.user.id;
+        return this.$auth.user.data.id == this.bill.user.id;
       }
       return true;
     },
@@ -129,7 +129,7 @@ export default {
           this.$notifier.showMessage({ content: r.message, color: "success" });
           this.dialog = false;
           this.errors = {};
-          $nuxt.$emit("bill-updated", r.bill);
+          $nuxt.$emit("bill-updated", r.data);
         })
         .catch((r) => {
           this.$notifier.showMessage({

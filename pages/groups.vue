@@ -31,7 +31,7 @@ export default {
   },
   async mounted(){
     await this.$axios.$get('/groups')
-    .then(r => this.groups = r)
+    .then(r => this.groups = r.data)
   },
   created(){
       $nuxt.$on('group-created', (group) => {
