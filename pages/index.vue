@@ -6,6 +6,18 @@
           <v-toolbar-title>Welcome!</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
+          Step by step to success
+          <ul>
+            <li>Register</li>
+            <li>Make a group</li>
+            <li>Set it as active</li>
+            <li>Invite your friends</li>
+            <li>Register bills</li>
+            <li>Make a settle</li>
+            <li>Profit!</li>
+          </ul>
+        </v-card-text>
+        <v-card-text>
           This is a home made project to share our bills!
         </v-card-text>
         <v-card-text>
