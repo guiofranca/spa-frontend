@@ -76,6 +76,11 @@ export default {
           title: "Bills",
           to: "/bills",
         },
+        {
+          icon: "mdi-scale-balance",
+          title: "Settles",
+          to: "/settles",
+        },
       ],
       miniVariant: false,
       title: "Splitabilly",

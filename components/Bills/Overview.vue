@@ -1,8 +1,10 @@
 <template>
     <v-card class="mx-auto mb-4">
         <v-card-text>
-            <v-spacer></v-spacer>
-            Total: {{total}}
+            <div class="d-flex justify-space-between align-center">
+            <span class="headline">Total: {{total}}</span>
+            <v-btn color="success" :disabled="false" @click="create">Settle now</v-btn>
+            </div>
         </v-card-text>
     </v-card>
 </template>
@@ -25,15 +27,17 @@ export default {
             }).format(total)
         }
     },
-    data: () => ({
-      //showMembers: false,
-    }),
-    methods:{
-        async destroy() {
-            await this.$axios.$delete(`/bills/${this.group.id}`)
+    methods: {
+        async create() {
+            await this.$axios.$post('/settles', {name: 'settle'})
             .then(r => {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
-                $nuxt.$emit('bill-deleted', this.bill)
+                this.errors = {}
+                $nuxt.$emit('settle-created', r.data)
+            })
+            .catch(r => {
+                this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+                this.errors = r.response.data.errors
             })
         }
     }

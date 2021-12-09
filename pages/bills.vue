@@ -26,11 +26,37 @@ export default {
     return {
       bills: null,
       categories: null,
+      headers: [
+        {
+          text: 'teste1',
+          value: 'teste1',
+        },
+        {
+          text: 'teste1',
+          value: 'teste2',
+        },
+        {
+          text: 'teste1',
+          value: 'teste3',
+        },
+        {
+          text: 'teste1',
+          value: 'teste4',
+        },
+      ]
     };
   },
   async mounted() {
-    await this.$axios.$get("/bills").then((r) => (this.bills = r.data));
-    await this.$axios.$get(`/categories`).then((r) => (this.categories = r.data));
+    await this.$axios.$get("/bills")
+      .then((r) => (this.bills = r.data))
+      .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+      })
+    await this.$axios.$get(`/categories`)
+      .then((r) => (this.categories = r.data))
+      .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+      })
   },
   created() {
     $nuxt.$on("bill-created", (bill) => {
@@ -40,6 +66,9 @@ export default {
       this.bills = this.bills.filter(function (b) {
         return b.id != bill.id;
       })
+    })
+    $nuxt.$on("settle-created", () => {
+      this.bills = []
     })
     $nuxt.$on("bill-updated", (bill) => {
       this.bills = this.bills.map(function (b) {

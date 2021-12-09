@@ -20,14 +20,10 @@
     <v-card-actions
       class="d-flex flex-row flex-wrap"
     >
+      <v-spacer></v-spacer>
+      <BillsDestroyBillBtn :bill="bill" />
+      <BillsEditBillDialog :bill="bill" :categories="categories" />
 
-    <v-btn color="success" rounded>text</v-btn>
-    <v-spacer></v-spacer>
-    <BillsDestroyBillBtn :bill="bill" />
-    <BillsEditBillDialog :bill="bill" :categories="categories" />
-
-      <!-- <BillsDestroyBillBtn :bill="bill" />
-      <BillsEditBillDialog :bill="bill" /> -->
     </v-card-actions>
   </v-card>
 </template>
