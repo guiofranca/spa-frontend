@@ -101,7 +101,7 @@ export default {
 
   router: {
     middleware: ['auth'],
-    //base: 'spa-frontend'
+    base: 'spa-frontend'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
