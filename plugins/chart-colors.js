@@ -1,8 +1,8 @@
-export default ({ $config: { colorSeed }}, inject ) => {
+export default ({ $config: { COLOR_SEED }}, inject ) => {
     inject('chartColor', {
         get(array) {
             return array.map(function(str) {
-                var hash = colorSeed ?? 25000;
+                var hash = COLOR_SEED ?? 25000;
                 if (str.length === 0) return hash;
                 for (var i = 0; i < str.length; i++) {
                     hash = str.charCodeAt(i) + ((hash << 5) - hash);

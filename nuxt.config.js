@@ -5,12 +5,12 @@ export default {
   ssr: false,
 
   env: {
-    baseUrl: process.env.BASE_URL,
-    apiUrl: process.env.API_URL
+    BASE_URL: process.env.BASE_URL,
+    API_URL: process.env.API_URL
   },
 
   publicRuntimeConfig: {
-    colorSeed: process.env.COLOR_SEED,
+    COLOR_SEED: process.env.COLOR_SEED,
   },
 
   // Target: https://go.nuxtjs.dev/config-target
@@ -62,7 +62,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.apiUrl,
+    baseURL: process.env.API_URL,
     headers: {
       common: {
         Accept: "application/vnd.api+json",
