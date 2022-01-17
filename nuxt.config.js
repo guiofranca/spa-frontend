@@ -62,7 +62,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: process.env.apiUrl,
     headers: {
       common: {
         Accept: "application/vnd.api+json",
@@ -107,7 +107,7 @@ export default {
 
   router: {
     middleware: ['auth'],
-    base: process.env.BASE_URL
+    base: process.env.baseUrl
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
