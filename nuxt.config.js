@@ -9,6 +9,10 @@ export default {
     apiUrl: process.env.API_URL
   },
 
+  publicRuntimeConfig: {
+    colorSeed: process.env.COLOR_SEED,
+  },
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -38,6 +42,8 @@ export default {
   plugins: [
     '~/plugins/notifier.js',
     '~/plugins/v-money.js',
+    {src: '~/plugins/chart.js', mode: 'client'},
+    '~/plugins/chart-colors.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -101,7 +107,7 @@ export default {
 
   router: {
     middleware: ['auth'],
-    base: '/spa-frontend/'
+    base: process.env.BASE_URL
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
