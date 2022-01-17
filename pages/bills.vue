@@ -26,24 +26,6 @@ export default {
     return {
       bills: null,
       categories: null,
-      headers: [
-        {
-          text: 'teste1',
-          value: 'teste1',
-        },
-        {
-          text: 'teste1',
-          value: 'teste2',
-        },
-        {
-          text: 'teste1',
-          value: 'teste3',
-        },
-        {
-          text: 'teste1',
-          value: 'teste4',
-        },
-      ]
     };
   },
   async mounted() {
@@ -60,7 +42,7 @@ export default {
   },
   created() {
     $nuxt.$on("bill-created", (bill) => {
-      this.bills.push(bill);
+      this.bills.unshift(bill);
     })
     $nuxt.$on("bill-deleted", (bill) => {
       this.bills = this.bills.filter(function (b) {

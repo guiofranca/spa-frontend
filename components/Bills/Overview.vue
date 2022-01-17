@@ -18,7 +18,6 @@ export default {
       total() {
             if(this.bills == null) return 'Retrieving...'
             var total = this.bills.reduce(function(total, bill){
-                console.log(bill)
                 return total + parseFloat(bill.value)
             }, 0)
             return new Intl.NumberFormat('en-US', {
