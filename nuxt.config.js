@@ -62,7 +62,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.apiUrl,
+    baseURL: process.env.API_URL,
     headers: {
       common: {
         Accept: "application/vnd.api+json",
