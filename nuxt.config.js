@@ -107,7 +107,7 @@ export default {
 
   router: {
     middleware: ['auth'],
-    base: process.env.baseUrl
+    base: process.env.BASE_URL
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
