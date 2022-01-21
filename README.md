@@ -1,6 +1,35 @@
-# spa-frontend
+<div style="text-align: center;">
+
+![Teste](static/android-chrome-192x192.png)
+
+</div>
+
+# Splitabilly
+
+Splitabilly is a very special Bill Splitting solution!
+
+Share your home, event or bills of any other kind of activity and then settle the differences once and for all with everybody!
+
+## Features
+* A user can create Groups
+* The Group owner can invite another users to the Group
+* The Group owner can set the split proportion to each member
+* Every member can register the expenses as Bills
+* Only the Bill owner can edit or delete a Bill
+* The Group owner can Settle the Bills
+* All Bills from Bills page will be marked as settled and will be removed from the page
+* Only Group owner can finish, edit or delete the Settle
+
+## Purpose
+This project is made to practice my developer skills using [PHP](https://github.com/php)/[Laravel](https://github.com/laravel) for the API and [Vue](https://github.com/vuejs)/[Nuxt](https://github.com/nuxt) for the Web Pages and Single Page Application feel.
+
+Also to make my home's bill splitting easier. It was previously done by registering the expenses on a Google form, and the splitting calculated on a Spreadsheet.
+
+## Related project
+The Api project is available on [SplitabillyApi](https://github.com/guiofranca/spa-backend).
 
 ## Build Setup
+Copy the `.env.example` to `.env` and fill it to map your API. Then:
 
 ```bash
 # install dependencies
@@ -15,55 +44,8 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# deploy on a Github Pages
+$ npm run deploy
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).

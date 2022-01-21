@@ -9,7 +9,7 @@
                     <settles-table :settles="settles" />
                 </div>
                 <div v-else>
-                    <v-skeleton-loader type="table" width="200"></v-skeleton-loader>
+                    <v-skeleton-loader type="table"></v-skeleton-loader>
                 </div>
                 <div v-if="settles && settles.length == 0">
                     <v-col cols="12" md="8" lg="6">
