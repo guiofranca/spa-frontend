@@ -1,8 +1,8 @@
-<div style="text-align: center;">
+<p align="center">
 
-![Teste](static/android-chrome-192x192.png)
+<img src="https://github.com/guiofranca/spa-frontend/raw/master/static/android-chrome-192x192.png" alt="Splitabilly Logo" />
 
-</div>
+</p>
 
 # Splitabilly
 
