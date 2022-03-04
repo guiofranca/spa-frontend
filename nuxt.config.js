@@ -110,7 +110,10 @@ export default {
   },
 
   router: {
-    middleware: ['auth'],
+    middleware: [
+      'auth',
+      'gh-pages-dynamic-routes'
+    ],
     base: process.env.BASE_URL
   },
 
