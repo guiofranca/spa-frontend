@@ -22,7 +22,7 @@
                     icon
                     color="primary"
                     title="Edit"
-                    :to="`settles/${item.id}/edit`"
+                    :to="`/settles/${item.id}/edit`"
                 >
                     <v-icon>mdi-pen</v-icon>
                 </v-btn>
@@ -30,7 +30,7 @@
                     icon
                     color="primary"
                     title="View"
-                    :to="`settles/${item.id}`"
+                    :to="`/settles/${item.id}`"
                 >
                     <v-icon>mdi-eye</v-icon>
                 </v-btn>
