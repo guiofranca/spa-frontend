@@ -19,7 +19,7 @@ export default {
       return this.isActive ? 'success' : 'primary'
     },
     btnText() {
-      return this.isActive ? 'Active' : 'Set active'
+      return this.isActive ? 'Ativo' : 'Tornar ativo'
     }
   },
   methods:{

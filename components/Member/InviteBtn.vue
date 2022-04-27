@@ -8,15 +8,15 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Invite a member </v-card-title>
+        <v-card-title class="text-h5"> Convidar </v-card-title>
         <v-card-text>
           <p>{{text}}</p>
           <p>{{url}}</p>
         </v-card-text>
         <v-card-actions v-if="!invited">
           <v-spacer></v-spacer>
-          <v-btn color="secondary" @click="dialog = false">Cancel</v-btn>
-          <v-btn color="primary" @click="invite">Invite</v-btn>
+          <v-btn color="secondary" @click="dialog = false">Cancelar</v-btn>
+          <v-btn color="primary" @click="invite">Convidar</v-btn>
         </v-card-actions>
         <v-card-actions v-else>
           <v-spacer></v-spacer>
@@ -30,7 +30,7 @@
             outlined
             block
             @click="dialog = true"
-            title="Invite member"
+            title="Convidar"
             >
             <v-icon>mdi-account-multiple-plus</v-icon>
         </v-btn>
@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       dialog: false,
-      text: 'Create a url for invitation.',
-      url: '<waiting invitation!>',
+      text: 'Criar um link de convite.',
+      url: '<esperando convite!>',
       invited: false
     };
   },
@@ -53,7 +53,7 @@ export default {
         await this.$axios.$post('/group_invitation', {group_id: this.group.id})
           .then(r => {
             this.$notifier.showMessage({ content: r.message, color: 'success' })
-            this.text = "Great! Now copy and share the invite below."
+            this.text = "Ótimo! Agora copie e compartilhe o link abaixo."
             this.url = r.url
             this.invited = true
           }
@@ -82,8 +82,8 @@ export default {
   watch:{
     dialog:function(newValue){
       if(!newValue){
-        this.text = 'Create a url for invitation.'
-        this.url = '<waiting invitation!>'
+        this.text = 'Criar um link de convite.'
+        this.url = '<esperando convite!>'
         this.invited = false
       }
     }

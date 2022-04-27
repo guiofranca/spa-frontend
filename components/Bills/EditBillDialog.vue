@@ -8,7 +8,7 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Edit Bill </v-card-title>
+        <v-card-title class="text-h5"> Editar despesa </v-card-title>
         <v-card-text>
           <v-text-field
             v-model="form.description"
@@ -52,7 +52,7 @@
             >
               <v-spacer></v-spacer>
               <v-btn text color="primary" @click="showDatePicker = false">
-                Cancel
+                Cancelar
               </v-btn>
               <v-btn text color="primary" @click="$refs.dialog.save(date)">
                 OK
@@ -69,22 +69,12 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="secondary" @click="dialog = false">Cancel</v-btn>
-          <v-btn color="primary" @click="create">Save</v-btn>
+          <BillsDestroyBillBtn :bill="bill" />
+          <v-btn color="secondary" @click="dialog = false">Cancelar</v-btn>
+          <v-btn color="primary" @click="create">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-btn
-      color="primary"
-      rounded
-      @click="dialog = true"
-      title="Edit bill"
-      fab
-      small
-      :disabled="!canEdit"
-    >
-      <v-icon>mdi-pencil</v-icon>
-    </v-btn>
   </div>
 </template>
 <script>
@@ -144,6 +134,7 @@ export default {
     $nuxt.$on(`category-picker-${this.bill.id}`, (category) => {
       this.form.category_id = category.id;
     });
+    $nuxt.$on(`open-dialog-${this.bill.id}`, () => this.dialog = true)
   },
 };
 </script>

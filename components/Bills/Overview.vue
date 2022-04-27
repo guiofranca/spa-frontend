@@ -3,7 +3,7 @@
         <v-card-text>
             <div class="d-flex justify-space-between align-center">
             <span class="headline">Total: {{total}}</span>
-            <v-btn color="success" :disabled="false" @click="create">Settle now</v-btn>
+            <v-btn color="success" :disabled="false" @click="create">Fazer acerto</v-btn>
             </div>
         </v-card-text>
     </v-card>

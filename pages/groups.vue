@@ -32,6 +32,9 @@ export default {
   async mounted(){
     await this.$axios.$get('/groups')
     .then(r => this.groups = r.data)
+    .catch(r => {
+      this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+    })
   },
   created(){
       $nuxt.$on('group-created', (group) => {

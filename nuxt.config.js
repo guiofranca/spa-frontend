@@ -19,7 +19,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s',
-    title: 'Splitabilly',
+    title: 'Continhas',
     htmlAttrs: {
       lang: 'en'
     },
@@ -62,8 +62,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    'vue-sweetalert2/nuxt',
   ],
+  sweetalert: {
+    confirmButtonColor: '#41b882',
+    cancelButtonColor: '#ff7674',
+  },
 
   axios: {
     baseURL: process.env.API_URL,
@@ -87,8 +92,12 @@ export default {
   auth: {
     strategies: {
       local: {
+        scheme: 'refresh',
         token: {
           property: 'access_token',
+          global: true,
+          required: true,
+          type: 'Bearer'
         },
         user: {
           autoFetch: true,
@@ -97,8 +106,14 @@ export default {
         endpoints: {
           login: { url: "auth/login", method: "post" },
           logout: { url: "auth/logout", method: "post" },
-          user: { url: "/user", method: "get" }
-        }
+          user: { url: "/user", method: "get" },
+          refresh: { url: '/auth/refresh', method: 'post' },
+        },
+        refreshToken: {
+          property: false,
+          tokenRequired: true,
+          required: true,
+        },
       },
     },
     redirect: {
@@ -124,6 +139,15 @@ export default {
       dark: false,
       themes: {
         dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.red.base,
+          success: colors.green.base
+        },
+        light: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,

@@ -41,7 +41,7 @@
       <v-btn color="default" rounded fab small href="https://github.com/guiofranca/spa-frontend" title="Frontend" depressed><v-icon>mdi-github</v-icon></v-btn>
       
     </v-app-bar>
-    <v-main>
+    <v-main class="success">
       <v-container>
         <Nuxt />
       </v-container>
@@ -63,27 +63,27 @@ export default {
       items: [
         {
           icon: "mdi-apps",
-          title: "Welcome",
+          title: "Bem-vindo",
           to: "/",
         },
         {
           icon: "mdi-account-multiple",
-          title: "Groups",
+          title: "Grupos",
           to: "/groups",
         },
         {
           icon: "mdi-cash",
-          title: "Bills",
+          title: "Despesas",
           to: "/bills",
         },
         {
           icon: "mdi-scale-balance",
-          title: "Settles",
+          title: "Acertos",
           to: "/settles",
         },
       ],
       miniVariant: false,
-      title: "Splitabilly",
+      title: "Continhas",
     };
   },
   mounted() {

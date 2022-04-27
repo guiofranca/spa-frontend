@@ -4,11 +4,11 @@
   >
 
     <v-card-title>
-      Create your first group
+      Crie seu primeiro grupo
     </v-card-title>
 
     <v-card-subtitle>
-      Click the plus sign and create a new group!
+      Clique em adicionar para criar seu primeiro grupo!
     </v-card-subtitle>
 
     <v-card-actions>

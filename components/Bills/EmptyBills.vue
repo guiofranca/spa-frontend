@@ -4,14 +4,14 @@
   >
 
     <v-card-title v-if="this.$auth.user.data.active_group_id">
-      Create your first bill
+      Crie uma despesa!
     </v-card-title>
     <v-card-title v-else>
-      Set an active group first!
+      Você precisa estar em um grupo!
     </v-card-title>
 
     <v-card-subtitle>
-      Click to add a new bill!
+      Adicione uma nova despesa!
     </v-card-subtitle>
 
     <v-card-actions>

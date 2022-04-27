@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         categoryLabel(){
-            return this.selectedCategoryName ? `Category: ${this.selectedCategoryName}` : 'Category'
+            return this.selectedCategoryName ? `Categoria: ${this.selectedCategoryName}` : 'Categoria'
         }
     },
     methods:{

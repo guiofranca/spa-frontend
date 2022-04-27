@@ -14,11 +14,11 @@
         data () {
             return {
                 headers: [
-                    { text: 'Date', value: 'paid_at' },
-                    { text: 'Person', value: 'user.name' },
-                    { text: 'Description', value: 'description' },
-                    { text: 'Category', value: 'category.name' },
-                    { text: 'Value', value: 'value' },
+                    { text: 'Data', value: 'paid_at' },
+                    { text: 'Pessoa', value: 'user.name' },
+                    { text: 'Descrição', value: 'description' },
+                    { text: 'Categoria', value: 'category.name' },
+                    { text: 'Valor', value: 'value' },
                 ],
             }
         },

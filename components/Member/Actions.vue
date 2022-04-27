@@ -9,7 +9,7 @@
                     </span>
                 </div>
                 <div class="">
-                    <span class="px-4" title="Contribution">
+                    <span class="px-4" title="Contribuição">
                         {{member.contribution}}
                     </span>
                     <v-btn
@@ -18,7 +18,7 @@
                         small
                         outlined
                         color="primary"
-                        title="Save"
+                        title="Salvar"
                         @click="save"
                     >
                         <v-icon>mdi-content-save</v-icon>
@@ -28,7 +28,7 @@
                         small
                         outlined
                         color="error"
-                        title="Remove Member"
+                        title="Remover membro"
                         @click="destroy"
                     >
                         <v-icon>mdi-delete</v-icon>
@@ -39,7 +39,7 @@
         <div>
             <v-slider
                 v-if="isOwner()"
-                label="Contribution"
+                label="Contribuição"
                 v-model="member.contribution"
                 thumb-label
             ></v-slider>

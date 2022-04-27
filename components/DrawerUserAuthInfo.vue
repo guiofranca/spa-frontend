@@ -32,7 +32,7 @@
           <v-icon>mdi-brightness-6</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="'Toggle dark mode'" />
+          <v-list-item-title v-text="'Modo escuro'" />
         </v-list-item-content>
       </v-list-item>
 
@@ -52,7 +52,7 @@
           <v-icon>mdi-export</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="'Logout'" />
+          <v-list-item-title v-text="'Sair'" />
         </v-list-item-content>
       </v-list-item>
     </div>
@@ -78,7 +78,7 @@
           <v-icon>mdi-plus</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="'Login'" />
+          <v-list-item-title v-text="'Sair'" />
         </v-list-item-content>
       </v-list-item>
     </div>

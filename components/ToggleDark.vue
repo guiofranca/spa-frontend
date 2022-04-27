@@ -2,7 +2,7 @@
     <v-btn
         @click="toggleDarkMode"
     >
-        Toggle Dark Mode!
+        Alternar modo escuro
     </v-btn>
 </template>
 

@@ -5,11 +5,11 @@
     <v-card-title>
         <v-icon>mdi-scale-balance</v-icon> {{settle.name}}
         <v-spacer></v-spacer>
-        <v-chip :color="settle.settled ? 'success' : 'error'" @click="toggleSettled">{{settle.settled ? 'Settled' : 'Not Settled'}}</v-chip>
+        <v-chip :color="settle.settled ? 'success' : 'error'" @click="toggleSettled">{{settle.settled ? 'Fechado' : 'Aberto'}}</v-chip>
     </v-card-title>
 
     <v-card-subtitle>
-        Bills: {{billCount}}
+        Despesas: {{billCount}}
     </v-card-subtitle>
 
     <v-card-text>

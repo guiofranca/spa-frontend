@@ -8,7 +8,7 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Edit group </v-card-title>
+        <v-card-title class="text-h5"> Alterar Grupo </v-card-title>
         <v-card-text>
           <v-text-field
             v-model="form.name"
@@ -31,8 +31,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="secondary" @click="dialog = false">Cancel</v-btn>
-          <v-btn color="primary" @click="save">Save</v-btn>
+          <v-btn color="secondary" @click="dialog = false">Cancelar</v-btn>
+          <v-btn color="primary" @click="save">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

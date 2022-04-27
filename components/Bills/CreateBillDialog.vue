@@ -8,19 +8,19 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Create a new Bill </v-card-title>
+        <v-card-title class="text-h5"> Registrar despesa </v-card-title>
         <v-card-text>
           <v-text-field
               v-model="form.description"
               name="description"
-              label="Description"
+              label="Descrição"
               id="description"
               prepend-icon="mdi-text-box"
           ></v-text-field>
           <v-text-field
               v-model="form.value"
               name="value"
-              label="Value"
+              label="Valor"
               id="value"
               inputmode="numeric"
               prepend-icon="mdi-currency-usd"
@@ -39,7 +39,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
             v-model="form.paid_at"
-            label="Date"
+            label="Data"
             prepend-icon="mdi-calendar"
             readonly
             v-bind="attrs"
@@ -73,8 +73,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancel</v-btn>
-          <v-btn color="primary" @click="create">Create</v-btn>
+          <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancelar</v-btn>
+          <v-btn color="primary" @click="create">Criar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -87,7 +87,7 @@
       right
       fixed
       @click="dialog = true"
-      title="Register a new bill"
+      title="Registrar despesa"
     >
       <v-icon>mdi-plus</v-icon>
     </v-btn>

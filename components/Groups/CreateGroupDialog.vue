@@ -8,26 +8,26 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Create a new Group </v-card-title>
+        <v-card-title class="text-h5"> Criar um Grupo </v-card-title>
         <v-card-text>
           <v-text-field
               v-model="form.name"
               name="name"
-              label="Name"
+              label="Nome"
               id="name"
           ></v-text-field>
           <v-text-field
               v-model="form.description"
               name="description"
-              label="Description"
+              label="Descrição"
               id="description"
           ></v-text-field>
           <span class="red--text" v-for="(value, name, index) in errors" :key="index">{{value[0]}}<br/></span>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancel</v-btn>
-          <v-btn color="primary" @click="create">Create</v-btn>
+          <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancelar</v-btn>
+          <v-btn color="primary" @click="create">Criar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

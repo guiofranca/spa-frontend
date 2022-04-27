@@ -3,34 +3,35 @@
     <v-col cols="12" sm="10" md="8">
       <v-card>
         <v-toolbar dark color="primary">
-          <v-toolbar-title>Welcome!</v-toolbar-title>
+          <v-toolbar-title>Bem-vindos!</v-toolbar-title>
         </v-toolbar>
+        <v-btn color="success" v-on:click="teste">Sweet!</v-btn>
         <v-card-text>
-          Step by step to success
+          Passo a passo para o sucesso:
           <ul>
-            <li>Register</li>
-            <li>Make a group</li>
-            <li>Set it as active</li>
-            <li>Invite your friends</li>
-            <li>Register bills</li>
-            <li>Make a settle</li>
+            <li>Registre-se</li>
+            <li>Crie um grupo</li>
+            <li>Marque-o como ativo</li>
+            <li>Convide seus amigos</li>
+            <li>Registre despesas</li>
+            <li>Faça um acerto</li>
             <li>Profit!</li>
           </ul>
         </v-card-text>
         <v-card-text>
-          This is a home made project to share our bills!
+          Esse é um projeto caseiro para divisão de despesas!
         </v-card-text>
         <v-card-text>
-          It's backend is writen on Laravel 8.
+          A API é feita com Laravel.
         </v-card-text>
         <v-card-text>
-          The frontend uses Nuxt!
+          Aqui, usamos Nuxt com Vuetify!
         </v-card-text>
         <v-card-text>
-          More details on the up right icons.
+          Mais detalhes nos ícones no canto superior direito.
         </v-card-text>
         <v-card-text class="text-decoration-line-through">
-          Frontend is the least strong skillset of mine.
+          Front-end não é meu forte.
         </v-card-text>
       </v-card>
     </v-col>
@@ -38,6 +39,14 @@
 </template>
 <script>
 export default {
-  auth: false
+  auth: false,
+  methods: {
+    teste() {
+      this.$swal.fire({
+        title: "Ok aee",
+        text: "ihuuuuu",
+      });
+    }
+  }
 }
 </script>
