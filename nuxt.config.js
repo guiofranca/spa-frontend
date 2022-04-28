@@ -20,22 +20,22 @@ export default {
   head: {
     titleTemplate: '%s',
     title: 'Continhas',
-    htmlAttrs: {
-      lang: 'en'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: 'apple-touch-icon.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon-16x16.png' },
-      { rel: 'manifest', href: 'site.webmanifest' }
-    ]
+    // htmlAttrs: {
+    //   lang: 'en'
+    // },
+    // meta: [
+    //   { charset: 'utf-8' },
+    //   { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    //   { hid: 'description', name: 'description', content: '' },
+    //   { name: 'format-detection', content: 'telephone=no' }
+    // ],
+    // link: [
+    //   { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
+    //   { rel: 'apple-touch-icon', sizes: '180x180', href: 'apple-touch-icon.png' },
+    //   { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon-32x32.png' },
+    //   { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon-16x16.png' },
+    //   { rel: 'manifest', href: 'site.webmanifest' }
+    // ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -64,6 +64,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     'vue-sweetalert2/nuxt',
+    '@nuxtjs/pwa',
   ],
   sweetalert: {
     confirmButtonColor: '#41b882',
@@ -162,5 +163,24 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  pwa: {
+    icon: {
+      source: 'static/icon.png'
+    },
+    meta: {
+      author: 'Guilherme França',
+      description: 'Continhas é um App para facilitar as contas de casa!',
+      lang: 'pt-br',
+    },
+    manifest: {
+      name: 'Continhas',
+      lang: 'pt-br',
+      useWebmanifestExtension: false,
+      background_color: '#4caf50',
+      theme_color: '#7F92FF',
+      start_url: '/bills',
+    }
   }
 }
