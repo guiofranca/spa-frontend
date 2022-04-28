@@ -2,7 +2,7 @@
     <v-card
       color="#1F7087"
       dark
-      @click="$nuxt.$emit(`open-dialog-${bill.id}`)"
+      @click="openEditDialog"
       style="height: 100%"
       class="d-flex"
     >
@@ -41,7 +41,7 @@
           </v-card-subtitle>
         </div>
       </div>
-    <BillsEditBillDialog :bill="bill" :categories="categories" :dialog="editDialog" />
+    <BillsEditBillDialog :bill="bill" :categories="categories" />
     </v-card>
 </template>
 <script>
@@ -74,6 +74,9 @@ export default {
           month: '2-digit'
         }
         return new Date(this.bill.paid_at).toLocaleDateString(undefined, options)
+      },
+      isOwner() {
+        return this.$auth.user.data.id == this.bill.user_id
       }
     },
     data: () => ({
@@ -87,6 +90,9 @@ export default {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
                 $nuxt.$emit('bill-deleted', this.bill)
             })
+        },
+        openEditDialog() {
+          if(this.isOwner) $nuxt.$emit(`open-dialog-${this.bill.id}`)
         }
     },
 }

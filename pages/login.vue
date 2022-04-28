@@ -4,14 +4,14 @@
             <v-card class="elevation-12">
                 <v-form @submit.prevent="login">
                     <v-toolbar dark color="primary">
-                    <v-toolbar-title>Login</v-toolbar-title>
+                    <v-toolbar-title>Entrar em Continhas</v-toolbar-title>
                     </v-toolbar>
                     <v-card-text>
                     <v-form>
                         <v-text-field
                             prepend-icon="mdi-account"
                             name="login"
-                            label="Login"
+                            label="E-mail"
                             type="text"
                             v-model="form.email"
                         ></v-text-field>
@@ -19,7 +19,7 @@
                             id="password"
                             prepend-icon="mdi-lock"
                             name="password"
-                            label="Password"
+                            label="Senha"
                             type="password"
                             v-model="form.password"
                         ></v-text-field>
@@ -30,8 +30,8 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="default" type="button" to="/register">Register</v-btn>
-                        <v-btn color="primary" type="submit">Login</v-btn>
+                        <v-btn color="default" type="button" to="/register">Registrar</v-btn>
+                        <v-btn color="primary" type="submit">Entrar</v-btn>
                     </v-card-actions>
                 </v-form>
             </v-card>

@@ -2,14 +2,14 @@
     <div>
         <v-card>
             <v-card-title primary-title>
-                Let's share some bills!
+                Vamos dividir umas Continhas!
             </v-card-title>
             <v-card-text>
-                You've been invited to group <b>{{name}}</b>!
+                Você foi convidado para o grupo <b>{{name}}</b>!
             </v-card-text>
             <v-card-actions>
-                <v-btn color="success" @click="accept(1)">Accept</v-btn>
-                <v-btn color="error" @click="accept(0)">Dismiss</v-btn>
+                <v-btn color="success" @click="accept(1)">Aceitar</v-btn>
+                <v-btn color="error" @click="accept(0)">Rejeitar</v-btn>
             </v-card-actions>
         </v-card>
     </div>

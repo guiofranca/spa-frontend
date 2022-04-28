@@ -1,23 +1,17 @@
 <template>
     <v-container>
-        <v-card>
-            <v-card-title primary-title>
-                Settles
-            </v-card-title>
-            <v-card-text>
-                <div v-if="settles">
-                    <settles-table :settles="settles" />
-                </div>
-                <div v-else>
-                    <v-skeleton-loader type="table"></v-skeleton-loader>
-                </div>
-                <div v-if="settles && settles.length == 0">
-                    <v-col cols="12" md="8" lg="6">
-                        No settles here
-                    </v-col>
-                </div>
-            </v-card-text>
-        </v-card>
+        <div v-if="settles">
+            <div 
+                v-for="settle in settles"
+                :key="settle.id"
+                class="d-flex-column mb-8"
+            >
+                <SettlesCard :settle="settle" />
+            </div>
+        </div>
+        <div v-else>
+            <v-skeleton-loader type="card"></v-skeleton-loader>
+        </div>
     </v-container>
 </template>
 

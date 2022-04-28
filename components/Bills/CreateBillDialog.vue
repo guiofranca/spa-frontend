@@ -87,6 +87,7 @@
       right
       fixed
       @click="dialog = true"
+      style="z-index:100; bottom:72px;"
       title="Registrar despesa"
     >
       <v-icon>mdi-plus</v-icon>

@@ -5,7 +5,6 @@
         <v-toolbar dark color="primary">
           <v-toolbar-title>Bem-vindos!</v-toolbar-title>
         </v-toolbar>
-        <v-btn color="success" v-on:click="teste">Sweet!</v-btn>
         <v-card-text>
           Passo a passo para o sucesso:
           <ul>
@@ -28,10 +27,11 @@
           Aqui, usamos Nuxt com Vuetify!
         </v-card-text>
         <v-card-text>
-          Mais detalhes nos ícones no canto superior direito.
+          Mais detalhes nos links dos repositórios de cógido da aplicação: 
         </v-card-text>
-        <v-card-text class="text-decoration-line-through">
-          Front-end não é meu forte.
+        <v-card-text>
+          <v-btn href="https://github.com/guiofranca/spa-backend" target="_blank">Backend <v-icon>mdi-github</v-icon></v-btn>
+          <v-btn href="https://github.com/guiofranca/spa-frontend" target="_blank">Frontend <v-icon>mdi-github</v-icon></v-btn>
         </v-card-text>
       </v-card>
     </v-col>
@@ -40,13 +40,6 @@
 <script>
 export default {
   auth: false,
-  methods: {
-    teste() {
-      this.$swal.fire({
-        title: "Ok aee",
-        text: "ihuuuuu",
-      });
-    }
-  }
+  //layout: 'mobile'
 }
 </script>

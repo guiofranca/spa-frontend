@@ -3,7 +3,7 @@
     class="mx-auto"
   >
     <v-card-title>
-        <v-icon>mdi-scale-balance</v-icon> {{settle.name}}
+        <nuxt-link :to="`/settles/${settle.id}`">{{settle.name}}</nuxt-link>
         <v-spacer></v-spacer>
         <v-chip :color="settle.settled ? 'success' : 'error'" @click="toggleSettled">{{settle.settled ? 'Fechado' : 'Aberto'}}</v-chip>
     </v-card-title>
@@ -29,7 +29,7 @@
             text
             @click="show = !show"
         >
-            Bills
+            Despesas
         </v-btn>
 
         <v-spacer></v-spacer>

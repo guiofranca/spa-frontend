@@ -4,13 +4,13 @@
             <v-card class="elevation-12">
                 <v-form @submit.prevent="updateProfile">
                     <v-toolbar dark color="primary">
-                    <v-toolbar-title>My Profile</v-toolbar-title>
+                    <v-toolbar-title>Meu perfil</v-toolbar-title>
                     </v-toolbar>
                     <v-card-text>
                         <v-text-field
                             prepend-icon="mdi-account"
                             name="name"
-                            label="Name"
+                            label="Nome"
                             type="text"
                             v-model="user.name"
                         ></v-text-field>
@@ -31,7 +31,7 @@
                         text
                         @click="show = !show"
                     >
-                        Change Password
+                        Mudar senha
                     </v-btn>
 
                     <v-spacer></v-spacer>
@@ -51,7 +51,7 @@
                             id="current_password"
                             prepend-icon="mdi-lock"
                             name="current_password"
-                            label="Current Password"
+                            label="Senha atual"
                             type="password"
                             v-model="changePassword.current_password"
                         ></v-text-field>
@@ -59,7 +59,7 @@
                             id="password"
                             prepend-icon="mdi-lock"
                             name="password"
-                            label="New password"
+                            label="Nova senha"
                             type="password"
                             v-model="changePassword.password"
                         ></v-text-field>
@@ -67,7 +67,7 @@
                             id="password_confirmation"
                             prepend-icon="mdi-lock"
                             name="password_confirmation"
-                            label="Confirm new password"
+                            label="Confirme a nova senha"
                             type="password"
                             v-model="changePassword.password_confirmation"
                         ></v-text-field>
@@ -76,7 +76,7 @@
                     </v-expand-transition>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" type="submit">Update</v-btn>
+                        <v-btn color="primary" type="submit">Salvar</v-btn>
                     </v-card-actions>
                 </v-form>
             </v-card>

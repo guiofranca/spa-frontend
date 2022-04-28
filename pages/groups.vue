@@ -1,5 +1,4 @@
 <template>
-<div>
   <v-container>
     <v-row v-if="groups">
       <v-col v-for="group in groups" :key="group.id" cols="12" md="8" lg="6">
@@ -17,9 +16,8 @@
         <GroupsEmptyGroups />
       </v-col>
     </v-row>
-  </v-container>
   <GroupsCreateGroupDialog />
-</div>
+  </v-container>
 </template>
 
 <script>

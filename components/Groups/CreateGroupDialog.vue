@@ -40,7 +40,8 @@
       right
       fixed
       @click="dialog = true"
-      title="Create a new Group"
+      style="z-index:100; bottom:72px;"
+      title="Criar um novo grupo"
     >
       <v-icon>mdi-plus</v-icon>
     </v-btn>

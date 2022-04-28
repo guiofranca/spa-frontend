@@ -8,7 +8,7 @@
             <v-col>
                 <v-card class="ma-2">
                     <v-card-title>
-                        {{settle.name}}
+                        <nuxt-link :to="`/settles/${settle.id}/edit`">{{settle.name}}</nuxt-link>
                         <v-spacer></v-spacer>
                         ${{settle.total}}
                     </v-card-title>
