@@ -1,12 +1,12 @@
 <p align="center">
 
-<img src="https://github.com/guiofranca/spa-frontend/raw/master/static/android-chrome-192x192.png" alt="Splitabilly Logo" />
+<img src="https://github.com/guiofranca/spa-frontend/raw/master/static/icon.png" alt="Continhas Logo" />
 
 </p>
 
-# Splitabilly
+# Continhas
 
-Splitabilly is a very special Bill Splitting solution!
+Continhas is a very special Bill Splitting solution!
 
 Share your home, event or bills of any other kind of activity and then settle the differences once and for all with everybody!
 
@@ -26,7 +26,7 @@ This project is made to practice my developer skills using [PHP](https://github.
 Also to make my home's bill splitting easier. It was previously done by registering the expenses on a Google form, and the splitting calculated on a Spreadsheet.
 
 ## Related project
-The Api project is available on [SplitabillyApi](https://github.com/guiofranca/spa-backend).
+The Api project is available on [ContinhasApi](https://github.com/guiofranca/spa-backend).
 
 ## Build Setup
 Copy the `.env.example` to `.env` and fill it to map your API. Then:
