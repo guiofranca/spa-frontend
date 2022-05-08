@@ -4,7 +4,7 @@
       <BillsOverview :bills="bills"/>
       <v-row v-if="bills">
         <v-col v-for="bill in bills" :key="bill.id" cols="12" md="4" lg="4">
-          <BillsBillCard :bill="bill" :categories="categories" />
+          <BillsBillCard :bill="bill" :categories="categories" :enableEdit="true"/>
         </v-col>
       </v-row>
       <v-row v-else>
@@ -16,7 +16,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <BillsCreateBillDialog :categories="categories" />
+    <BillsCreateBillDialog :categories="categories" :bills="bills" />
   </div>
 </template>
 

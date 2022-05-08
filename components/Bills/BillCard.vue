@@ -41,14 +41,18 @@
           </v-card-subtitle>
         </div>
       </div>
-    <BillsEditBillDialog :bill="bill" :categories="categories" />
+      <BillsEditBillDialog :bill="bill" :categories="categories"/>
     </v-card>
 </template>
 <script>
 import Avatar from 'vue-avatar-component'
 export default {
     components: { Avatar },
-    props: ['bill', 'categories'],
+    props: {
+      bill: Object,
+      categories: Array,
+      enableEdit: Boolean,
+    },
     setup() {
         
     },
@@ -92,8 +96,8 @@ export default {
             })
         },
         openEditDialog() {
-          if(this.isOwner) $nuxt.$emit(`open-dialog-${this.bill.id}`)
+          if(this.isOwner && this.enableEdit) $nuxt.$emit(`open-dialog-${this.bill.id}`)
         }
-    },
+    }
 }
 </script>

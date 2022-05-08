@@ -92,16 +92,38 @@
     >
       <v-icon>mdi-plus</v-icon>
     </v-btn>
+    <v-dialog
+      v-model="duplicatedDialog"
+      :overlay="true"
+      max-width="500"
+      transition="dialog-transition"
+    >
+      <v-card>
+        <v-card-title class="text-h5"> Existem faturas com o mesmo valor </v-card-title>
+        <v-card-text class="d-flex flex-column">
+          <span>Registrar mesmo assim?</span>
+        </v-card-text>
+        <v-card-text v-for="bill in duplicatedBills" :key="bill.id">
+          <BillsBillCard :bill="bill" :categories="categories" :enableEdit="false" />
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="secondary" @click="duplicatedDialog = false">Cancelar</v-btn>
+          <v-btn color="success" @click="create(false)">Registrar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-row>
 </template>
 <script>
 
 
 export default {
-  props: ['categories'],
+  props: ['categories', 'bills'],
   data() {
     return {
       dialog: false,
+      duplicatedDialog: false,
       form: {
           description: '',
           value: null,
@@ -121,18 +143,26 @@ export default {
     };
   },
   methods:{
-      async create(){
-          await this.$axios.$post('/bills', this.form)
-          .then(r => {
-              this.$notifier.showMessage({ content: r.message, color: 'success' })
-              this.closeDialogAndClearInputs()
-              this.errors = {}
-              $nuxt.$emit('bill-created', r.data)
-          })
-          .catch(r => {
-            this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
-            this.errors = r.response.data.errors
-          })
+      async create(promptDuplicatedBill = true){
+
+        if(!promptDuplicatedBill && this.duplicatedDialog) this.duplicatedDialog = false
+
+        if(this.hasDuplicatedBills && promptDuplicatedBill) {
+          this.duplicatedDialog = true
+          return
+        }
+
+        await this.$axios.$post('/bills', this.form)
+        .then(r => {
+            this.$notifier.showMessage({ content: r.message, color: 'success' })
+            this.closeDialogAndClearInputs()
+            this.errors = {}
+            $nuxt.$emit('bill-created', r.data)
+        })
+        .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+          this.errors = r.response.data.errors
+        })
       },
       closeDialogAndClearInputs(){
         this.dialog = false
@@ -142,6 +172,15 @@ export default {
         this.form.paid_at = null
         this.errors = {}
       }
+  },
+  computed: {
+    duplicatedBills() {
+      if(this.bills == null) return []
+      return this.bills.filter((bill) => bill.value == this.form.value)
+    },
+    hasDuplicatedBills() {
+      return this.duplicatedBills.length > 0
+    }
   },
   created(){
       $nuxt.$on('category-picker-create', (category) => {

@@ -64,8 +64,9 @@
             class="red--text"
             v-for="(value, name, index) in errors"
             :key="index"
-            >{{ value[0] }}<br
-          /></span>
+            >
+            {{ value[0] }}<br/>
+          </span>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
