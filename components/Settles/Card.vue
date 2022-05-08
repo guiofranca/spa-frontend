@@ -47,12 +47,7 @@
         <v-divider></v-divider>
 
         <v-card-text v-for="bill in settle.bills" :key="bill.id">
-          <v-chip>{{bill.paid_at}}</v-chip>
-          <v-chip><v-icon>{{bill.category.icon}}</v-icon></v-chip>
-          <v-chip>{{bill.description}}</v-chip>
-          <v-chip>${{bill.value}}</v-chip>
-          <v-chip>{{bill.user.name}}</v-chip>
-          <v-divider style="margin-top: 10px"></v-divider>
+          <BillsBillCard :bill="bill" />
         </v-card-text>
       </div>
     </v-expand-transition>
