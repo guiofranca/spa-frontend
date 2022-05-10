@@ -120,15 +120,12 @@ export default {
           this.$notifier.showMessage({ content: r.message, color: "success" });
           this.dialog = false;
           this.errors = {};
-          $nuxt.$emit("bill-updated", r.data);
+          $nuxt.$emit("bill-updated", r.data)
         })
-        .catch((r) => {
-          this.$notifier.showMessage({
-            content: r.response.data.message,
-            color: "error",
-          });
-          this.errors = r.response.data.errors;
-        });
+        .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+          this.errors = r.response.data.errors
+        })
     },
   },
   created() {

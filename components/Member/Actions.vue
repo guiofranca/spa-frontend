@@ -61,12 +61,9 @@ export default {
                 .then((r) => {
                     this.$notifier.showMessage({ content: r.message, color: "success" });
                 })
-                .catch((r) => {
-                    this.$notifier.showMessage({
-                        content: r.response.data.message,
-                        color: "error",
-                    });
-                });
+                .catch(r => {
+                    this.$notifier.showMessage({content: r.response.data.message, color: "error"})
+                })
         },
         async destroy(){
             await this.$axios.$delete(`/group_members/${this.member.id}`)
@@ -74,12 +71,9 @@ export default {
                     this.$notifier.showMessage({ content: r.message, color: "success" });
                     this.group.group_members = this.group.group_members.filter((m) => {return m.id != this.member.id})
                 })
-                .catch((r) => {
-                    this.$notifier.showMessage({
-                        content: r.response.data.message,
-                        color: "error",
-                    });
-                });
+                .catch(r => {
+                    this.$notifier.showMessage({ content: r.response.data.message, color: "error" })
+                })
         },
     },
 };

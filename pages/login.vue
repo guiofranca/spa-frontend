@@ -59,7 +59,7 @@ export default {
                 .loginWith('local', { 
                     data: this.form
                 })
-                .catch((e) => (this.error = e.response.data.detail))
+                .catch((e) => (this.error = e.response.data.message))
         },
    }
 };

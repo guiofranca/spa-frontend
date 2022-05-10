@@ -29,7 +29,9 @@ export default {
         logout() {
             this.$auth.logout()
                 .then(() => this.$router.push("/"))
-                .catch(r => this.$notifier.showMessage({ content: "Houve um erro", color: 'error' }))
+                .catch(r => {
+                    this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+                })
         },
     },
 }

@@ -81,7 +81,9 @@ export default {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
                 $nuxt.$emit('settle-updated', r.data)
             })
-            .catch((r) => (this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })))
+            .catch(r => {
+              this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+            })
         }
     }
 }

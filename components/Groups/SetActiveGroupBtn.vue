@@ -32,6 +32,9 @@ export default {
           this.$notifier.showMessage({ content: r.message, color: 'success' })
           this.$auth.fetchUser()
       })
+      .catch(r => {
+        this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+      })
     }
   },
 };

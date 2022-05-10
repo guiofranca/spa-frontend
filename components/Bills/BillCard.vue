@@ -94,6 +94,9 @@ export default {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
                 $nuxt.$emit('bill-deleted', this.bill)
             })
+            .catch(r => {
+              this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+            })
         },
         openEditDialog() {
           if(this.isOwner && this.enableEdit) $nuxt.$emit(`open-dialog-${this.bill.id}`)

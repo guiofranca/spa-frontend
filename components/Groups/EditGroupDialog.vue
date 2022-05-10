@@ -66,18 +66,15 @@ export default {
       await this.$axios
         .$patch(`/groups/${this.group.id}`, this.form)
         .then((r) => {
-          this.$notifier.showMessage({ content: r.message, color: "success" });
+          this.$notifier.showMessage({ content: r.message, color: "success" })
           this.dialog = false;
           this.errors = {};
-          $nuxt.$emit("group-updated", r.data);
-          this.$auth.fetchUser();
+          $nuxt.$emit("group-updated", r.data)
+          this.$auth.fetchUser()
         })
-        .catch((r) => {
-          this.$notifier.showMessage({
-            content: r.response.data.message,
-            color: "error",
-          });
-          this.errors = r.response.data.errors;
+        .catch(r => {
+          this.$notifier.showMessage({content: r.response.data.message, color: "error"})
+          this.errors = r.response.data.errors
         });
     },
   },

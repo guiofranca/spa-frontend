@@ -32,12 +32,12 @@ export default {
     await this.$axios.$get("/bills")
       .then((r) => (this.bills = r.data))
       .catch(r => {
-          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+        this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
       })
     await this.$axios.$get(`/categories`)
       .then((r) => (this.categories = r.data))
       .catch(r => {
-          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+        this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
       })
   },
   created() {

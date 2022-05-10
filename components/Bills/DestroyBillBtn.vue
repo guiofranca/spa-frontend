@@ -49,7 +49,9 @@ export default {
             this.$notifier.showMessage({ content: r.message, color: 'success' })
             $nuxt.$emit('bill-deleted', this.bill)
         })
-        .catch(r => this.$notifier.showMessage({ content: r.response.data.message, color: 'error' }))
+        .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+        })
     }
   },
 };

@@ -48,7 +48,9 @@ export default {
             $nuxt.$emit('group-deleted', this.group)
             this.$auth.fetchUser()
         })
-        .catch(r => this.$notifier.showMessage({ content: r.response.data.message, color: 'error' }))
+        .catch(r => {
+          this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+        })
     }
   },
 };

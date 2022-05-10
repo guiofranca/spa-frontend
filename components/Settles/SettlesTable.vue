@@ -86,7 +86,9 @@
                     this.$notifier.showMessage({ content: r.message, color: 'success' })
                     $nuxt.$emit('settle-updated', r.data)
                 })
-                .catch((r) => (this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })))
+                .catch(r => {
+                    this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+                })
             },
             async destroySettle(settle) {
                 if(!confirm('Are you sure? All bills settled will return to unsettled!')) return
@@ -95,7 +97,9 @@
                     this.$notifier.showMessage({ content: r.message, color: 'success' })
                     $nuxt.$emit('settle-deleted', settle)
                 })
-                .catch((r) => (this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })))
+                .catch(r => {
+                    this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+                })
             }
         }
     }

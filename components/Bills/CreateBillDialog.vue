@@ -99,8 +99,9 @@
       transition="dialog-transition"
     >
       <v-card>
-        <v-card-title class="text-h5"> Existem faturas com o mesmo valor </v-card-title>
+        <v-card-title class="text-h5"> Despesa repetida? </v-card-title>
         <v-card-text class="d-flex flex-column">
+          <span>Existem despesas com o mesmo valor</span>
           <span>Registrar mesmo assim?</span>
         </v-card-text>
         <v-card-text v-for="bill in duplicatedBills" :key="bill.id">

@@ -60,6 +60,9 @@ export default {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
                 $nuxt.$emit('group-deleted', this.group)
             })
+            .catch(r => {
+              this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
+            })
         }
     }
 }
