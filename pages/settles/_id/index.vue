@@ -37,8 +37,8 @@
             <v-card-title>
                 Bills
             </v-card-title>
-            <v-card-text>
-                <SettlesBillTable :settle="settle"/>                
+            <v-card-text v-for="bill in settle.bills" :key="bill.id">
+                <BillsBillCard :bill="bill" />
             </v-card-text>
         </v-card>
     </div>

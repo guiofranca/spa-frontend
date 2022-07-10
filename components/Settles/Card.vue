@@ -6,6 +6,7 @@
         <nuxt-link :to="`/settles/${settle.id}`">{{settle.name}}</nuxt-link>
         <v-spacer></v-spacer>
         <v-chip :color="settle.settled ? 'success' : 'error'" @click="toggleSettled">{{settle.settled ? 'Fechado' : 'Aberto'}}</v-chip>
+        <Destroy :settle="settle" />
     </v-card-title>
 
     <v-card-subtitle>
@@ -54,37 +55,38 @@
   </v-card>
 </template>
 <script>
+import Destroy from './Destroy.vue';
 export default {
-    props: ['settle'],
+    components: { Destroy },
+    props: ["settle"],
     setup() {
-        
     },
     computed: {
-      billCount() {
-          return this.settle.bills.length;
-      }
+        billCount() {
+            return this.settle.bills.length;
+        }
     },
     data: () => ({
-      show: false,
+        show: false,
     }),
-    methods:{
+    methods: {
         async destroy() {
             await this.$axios.$delete(`/settles/${this.settle.id}`)
-            .then(r => {
-                this.$notifier.showMessage({ content: r.message, color: 'success' })
-                $nuxt.$emit('settle-deleted', this.settle)
-            })
+                .then(r => {
+                this.$notifier.showMessage({ content: r.message, color: "success" });
+                $nuxt.$emit("settle-deleted", this.settle);
+            });
         },
         async toggleSettled() {
-            await this.$axios.$patch(`/settles/${this.settle.id}`, {settled: !this.settle.settled})
-            .then(r => {
-                this.$notifier.showMessage({ content: r.message, color: 'success' })
-                $nuxt.$emit('settle-updated', r.data)
+            await this.$axios.$patch(`/settles/${this.settle.id}`, { settled: !this.settle.settled })
+                .then(r => {
+                this.$notifier.showMessage({ content: r.message, color: "success" });
+                $nuxt.$emit("settle-updated", r.data);
             })
-            .catch(r => {
-              this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
-            })
+                .catch(r => {
+                this.$notifier.showMessage({ content: r.response.data.message, color: "error" });
+            });
         }
-    }
+    },
 }
 </script>

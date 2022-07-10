@@ -118,7 +118,7 @@
 </template>
 <script>
 
-
+import moment from 'moment'
 export default {
   props: ['categories', 'bills'],
   data() {
@@ -129,7 +129,7 @@ export default {
           description: '',
           value: null,
           category_id: null,
-          paid_at: null,
+          paid_at: moment().format('YYYY-MM-DD'),
       },
       errors: {},
       money: {
