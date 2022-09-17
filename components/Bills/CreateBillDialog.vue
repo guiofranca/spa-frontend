@@ -139,7 +139,7 @@ export default {
         precision: 2,
         masked: true /* doesn't work with directive */
       },
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substring(0, 10),
       showDatePicker: false,
     };
   },
@@ -170,7 +170,7 @@ export default {
         this.form.value = null
         this.form.description = null
         this.form.category = null
-        this.form.paid_at = null
+        this.form.paid_at = moment().format('YYYY-MM-DD'),
         this.errors = {}
       }
   },
