@@ -45,8 +45,8 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="default" type="button" to="/login">Login</v-btn>
-                        <v-btn color="primary" type="submit">Registrar</v-btn>
+                        <v-btn color="default" type="button" to="/login">Entrar</v-btn>
+                        <v-btn color="primary" type="submit" :disabled="registering">Registrar</v-btn>
                     </v-card-actions>
                 </v-form>
             </v-card>
@@ -67,10 +67,12 @@ export default {
                 password_confirmation: '',
             },
             errors: {},
+            registering: false
         }
     },
     methods: {
         async register() {
+            this.registering = true
             this.error = null
             await this.$axios.$post('/auth/register', this.form)
                 .catch(r => {
@@ -78,13 +80,18 @@ export default {
                     this.errors = r.response.data.errors
                 })
 
-            if(this.error) return
+            if(this.error) {
+                this.registering = false
+                return
+            }
 
             await this.$auth
                 .loginWith('local', { 
                     data: this.form
                 })
                 .catch((e) => (this.error = e.response.data.detail))
+            
+            this.registering = false
         },
    }
 };

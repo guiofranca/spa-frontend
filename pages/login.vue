@@ -31,7 +31,7 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="default" type="button" to="/register">Registrar</v-btn>
-                        <v-btn color="primary" type="submit">Entrar</v-btn>
+                        <v-btn color="primary" type="submit" :disabled="logging">Entrar</v-btn>
                     </v-card-actions>
                 </v-form>
             </v-card>
@@ -50,16 +50,19 @@ export default {
                 password: '',
             },
             error: null,
+            logging: false,
         }
     },
     methods: {
         async login() {
+            this.logging = true
             this.error = null
             await this.$auth
                 .loginWith('local', { 
                     data: this.form
                 })
                 .catch((e) => (this.error = e.response.data.message))
+            this.logging = false
         },
    }
 };
