@@ -46,7 +46,7 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="default" type="button" to="/login">Login</v-btn>
-                        <v-btn color="primary" type="submit">Register</v-btn>
+                        <v-btn color="primary" type="submit">Registrar</v-btn>
                     </v-card-actions>
                 </v-form>
             </v-card>

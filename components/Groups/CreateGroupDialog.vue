@@ -27,7 +27,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancelar</v-btn>
-          <v-btn color="primary" @click="create">Criar</v-btn>
+          <v-btn color="primary" @click="create" :disabled="creating">Criar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -56,11 +56,13 @@ export default {
           name: '',
           description: ''
       },
-      errors: {}
+      errors: {},
+      creating: false,
     };
   },
   methods:{
       async create(){
+          this.creating = true
           await this.$axios.$post('/groups', this.form)
           .then(r => {
               this.$notifier.showMessage({ content: r.message, color: 'success' })
@@ -72,6 +74,7 @@ export default {
             this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
             this.errors = r.response.data.errors
           })
+          this.creating = false
       },
       closeDialogAndClearInputs(){
         this.dialog = false

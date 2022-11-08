@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p class="font-weight-bold">Settle Fragments</p>
+        <p class="font-weight-bold">Partes do acerto</p>
         <v-data-table
             :headers="headers"
             :items="settle.settleFragments"
@@ -15,10 +15,10 @@
         data () {
             return {
                 headers: [
-                    { text: 'Person', value: 'name' },
-                    { text: 'Contribute', value: 'contribute' },
-                    { text: 'Paid', value: 'paid' },
-                    { text: 'To receive', value: 'to_receive' },
+                    { text: 'Pessoa', value: 'name' },
+                    { text: 'Contribuição', value: 'contribute' },
+                    { text: 'Pagou', value: 'paid' },
+                    { text: 'A receber', value: 'to_receive' },
                 ],
             }
         },

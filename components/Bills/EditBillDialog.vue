@@ -72,7 +72,7 @@
           <v-spacer></v-spacer>
           <BillsDestroyBillBtn :bill="bill" />
           <v-btn color="secondary" @click="dialog = false">Cancelar</v-btn>
-          <v-btn color="primary" @click="create">Salvar</v-btn>
+          <v-btn color="primary" @click="create" :disabled="editing">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -110,10 +110,12 @@ export default {
         .toISOString()
         .substr(0, 10),
       showDatePicker: false,
+      editing: false,
     };
   },
   methods: {
     async create() {
+      this.editing = true
       await this.$axios
         .$patch(`/bills/${this.bill.id}`, this.form)
         .then((r) => {
@@ -126,6 +128,7 @@ export default {
           this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
           this.errors = r.response.data.errors
         })
+        this.editing = false
     },
   },
   created() {

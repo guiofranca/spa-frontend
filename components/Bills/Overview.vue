@@ -3,7 +3,7 @@
         <v-card-text>
             <div class="d-flex justify-space-between align-center">
             <span class="headline">Total: {{total}}</span>
-            <v-btn color="success" :disabled="false" @click="create">Fazer acerto</v-btn>
+            <v-btn color="success" :disabled="settling" @click="create">Fazer acerto</v-btn>
             </div>
         </v-card-text>
     </v-card>
@@ -11,6 +11,11 @@
 <script>
 export default {
     props: ['bills'],
+    data() {
+        return {
+            settling: false,
+        }
+    },
     setup() {
         
     },
@@ -28,6 +33,7 @@ export default {
     },
     methods: {
         async create() {
+            this.settling = true
             await this.$axios.$post('/settles', {name: 'settle'})
             .then(r => {
                 this.$notifier.showMessage({ content: r.message, color: 'success' })
@@ -38,6 +44,7 @@ export default {
                 this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
                 this.errors = r.response.data.errors
             })
+            this.settling = false
         }
     }
 }

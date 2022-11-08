@@ -1,7 +1,7 @@
 <template>
     <v-card>
         <v-card-title>
-            Edit Settle
+            Editar acerto
         </v-card-title>
         <v-card-text>
             <v-text-field
@@ -13,8 +13,8 @@
         </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" to="/settles">Cancel</v-btn>
-            <v-btn color="success" @click="update()">Save</v-btn>
+            <v-btn color="primary" to="/settles">Cancelar</v-btn>
+            <v-btn color="success" @click="update()">Salvar</v-btn>
         </v-card-actions>
     </v-card>
 </template>

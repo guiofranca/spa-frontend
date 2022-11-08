@@ -74,7 +74,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="secondary" @click="closeDialogAndClearInputs">Cancelar</v-btn>
-          <v-btn color="primary" @click="create">Criar</v-btn>
+          <v-btn color="primary" @click="create" :disabled="creating">Criar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -141,18 +141,19 @@ export default {
       },
       date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substring(0, 10),
       showDatePicker: false,
+      creating: false,
     };
   },
   methods:{
       async create(promptDuplicatedBill = true){
-
         if(!promptDuplicatedBill && this.duplicatedDialog) this.duplicatedDialog = false
-
+        
         if(this.hasDuplicatedBills && promptDuplicatedBill) {
           this.duplicatedDialog = true
           return
         }
-
+        
+        this.creating = true
         await this.$axios.$post('/bills', this.form)
         .then(r => {
             this.$notifier.showMessage({ content: r.message, color: 'success' })
@@ -164,6 +165,7 @@ export default {
           this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
           this.errors = r.response.data.errors
         })
+        this.creating = false
       },
       closeDialogAndClearInputs(){
         this.dialog = false

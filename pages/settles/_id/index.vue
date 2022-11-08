@@ -15,7 +15,7 @@
                 </v-card>
                 <v-card class="ma-2">
                     <v-card-title>
-                        Settle Fragments
+                        Partes do acerto
                     </v-card-title>
                     <v-card-text>
                         <SettlesFragmentTable :settle="settle"/>                        
@@ -25,7 +25,7 @@
             <v-col>
                 <v-card class="ma-2">
                     <v-card-title>
-                        Bills by category
+                        Contas por categoria
                     </v-card-title>
                     <v-card-text>
                         <SettlesChart :settle="settle"/>                        
@@ -35,7 +35,7 @@
         </v-row>
         <v-card class="ma-2">
             <v-card-title>
-                Bills
+                Contas
             </v-card-title>
             <v-card-text v-for="bill in settle.bills" :key="bill.id">
                 <BillsBillCard :bill="bill" />

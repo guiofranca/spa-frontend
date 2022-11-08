@@ -16,7 +16,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="secondary" @click="dialog = false">Cancelar</v-btn>
-          <v-btn color="error" @click="destroy">Apagar</v-btn>
+          <v-btn color="error" @click="destroy" :disabled="deleting">Apagar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -36,12 +36,14 @@
 export default {
     data() {
         return {
-            dialog: false
+            dialog: false,
+            deleting: false,
         }
     },
   props: ['group'],
   methods:{
     async destroy() {
+      this.deleting = true
         await this.$axios.$delete(`/groups/${this.group.id}`)
         .then(r => {
             this.$notifier.showMessage({ content: r.message, color: 'success' })
@@ -51,6 +53,7 @@ export default {
         .catch(r => {
           this.$notifier.showMessage({ content: r.response.data.message, color: 'error' })
         })
+      this.deleting = false
     }
   },
 };
