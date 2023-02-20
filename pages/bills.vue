@@ -8,7 +8,12 @@
         </v-col>
       </v-row>
       <v-row v-else>
-        <v-skeleton-loader type="card" width="200"></v-skeleton-loader>
+        <v-col cols="12" md="4" lg="4">
+          <v-skeleton-loader type="list-item-avatar-two-line" class="mb-3"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar-two-line" class="mb-3"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar-two-line" class="mb-3"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar-two-line" class="mb-3"></v-skeleton-loader>
+        </v-col>
       </v-row>
       <v-row v-if="bills && bills.length == 0">
         <v-col cols="12" md="8" lg="6">

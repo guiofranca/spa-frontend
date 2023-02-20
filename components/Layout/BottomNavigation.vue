@@ -3,7 +3,7 @@
         v-model="value" 
         app 
         grow
-        background-color="error"
+        background-color="#7F92FF"
         dark
     >
         <v-btn 

@@ -1,6 +1,6 @@
 <template>
     <v-card
-      color="#1F7087"
+      color="#4555b5"
       dark
       @click="openEditDialog"
       style="height: 100%"

@@ -7,7 +7,7 @@
                 v-if="$auth.loggedIn"
             >
                 <span style="margin-top: 1px">{{$auth.user.data.name}}</span>
-                <avatar :fullname="$auth.user.data.name" :size="25" class="error darken-1"></avatar>
+                <avatar :fullname="$auth.user.data.name" :size="25" color="#596fff"></avatar>
             </v-btn>
             <v-btn 
                 v-else

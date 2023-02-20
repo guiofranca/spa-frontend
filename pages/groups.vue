@@ -6,10 +6,9 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-skeleton-loader
-          type="card"
-          width="200"
-      ></v-skeleton-loader>
+      <v-col cols="12" md="8" lg="6">
+        <v-skeleton-loader type="article, actions"></v-skeleton-loader>
+      </v-col>
     </v-row>
     <v-row v-if="groups && groups.length == 0">
       <v-col cols="12" md="8" lg="6">

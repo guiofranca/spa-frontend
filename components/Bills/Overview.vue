@@ -21,7 +21,7 @@ export default {
     },
     computed: {
       total() {
-            if(this.bills == null) return 'Retrieving...'
+            if(this.bills == null) return 'Buscando...'
             var total = this.bills.reduce(function(total, bill){
                 return total + parseFloat(bill.value)
             }, 0)

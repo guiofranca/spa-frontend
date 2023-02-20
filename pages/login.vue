@@ -61,7 +61,10 @@ export default {
                 .loginWith('local', { 
                     data: this.form
                 })
-                .catch((e) => (this.error = e.response.data.message))
+                .catch((e) => {
+                    this.$notifier.showMessage({ content: e.response.data.message, color: 'error' })
+                    this.error = e.response.data.message
+                })
             this.logging = false
         },
    }
